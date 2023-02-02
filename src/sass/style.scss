@@ -1,2 +1,8 @@
 @import "./base/reset"; 
-@import "./components/test"; 
+@import "./base/reset"; 
+@import "./base/typography"; 
+
+@import "./components/list"; 
+@import "./components/table"; 
+
+@import "./pages/main"; 

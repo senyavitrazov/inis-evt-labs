@@ -13,7 +13,7 @@ const devServer = (isDev) => !isDev ? {} : {
     },
     hot: true,
     liveReload: true,
-    watchFiles: ['./src/sass/**/*'],
+    watchFiles: ['./src/sass/**/*', './src/index.html'],
   },
 };
 
