@@ -71,6 +71,7 @@ module.exports = ({ development }) => ({
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({filename: 'dev.html', template: './src/dev.html' }),
     new CopyPlugin({
       patterns: [{
         from: 'public',
