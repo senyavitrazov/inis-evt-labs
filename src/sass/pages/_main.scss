@@ -1,42 +1,26 @@
-.main__wrapper {
- padding: 0 100px; 
+.header {
+  background: $dark-blue;
+  height: 116px;
+  &__top {
+  }
+
+  &__bottom {
+  }
 }
+.navigation {
 
-.film {
-
-  margin-bottom: 40px;
-
-  &__title {
-    margin: 2rem 0;
+  &__item {
+    display: inline-block;
   }
-
-  h3 {
-    font-size: 2.3rem;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-
-  &__description {
-    margin-bottom: 20px;
-  }
-
-  &__images {
-    margin-bottom: 20px;
-  }
+}
+.main {
 
   &__about {
   }
-}
-.images {
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    >* {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      flex-basis: 30%;
-    }
+  &__bottom {
+  }
+
+  &__item {
   }
 }

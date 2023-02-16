@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Films</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
 <body>
-  <main>
-    <div class="main__wrapper">
-      <div class="favirotes-list">
-        <h1>Мои любимые фильмы</h1>
-        <ul>
-          <li><a href="#film0">Мимино</a></li>
-          <li><a href="#film1">12 стульев</a></li>
-          <li><a href="#film2">Любовь и голуби</a></li>
-        </ul>
+  <header>
+    <div class="header__top"></div>
+    <div class="header__bottom">
+      <img src="../logo.png" alt="img">
+      <h1>Инженерная психология (ИНиС)</h1>
+      <nav class="navigation">
+        <div class="navigation__item">Футболки</div>
+        <div class="navigation__item">Толстовки</div>
+        <div class="navigation__item">Создай дизайн</div>
+        <div class="navigation__item">О нас</div>
+        <div class="navigation__item">Войти в аккаунт</div>
+      </nav>
+  </div>
+  </header>
+  <main class="main">
+    <section class="main__about">
+      <img src="../home.png" alt="alt">
+    </section>
+    <section class="main__bottom">
+      <div class="main__item">
+        <h2>Мы не поставляем майки. Нас нет.</h2>
+        <p>Мы продаём майки. Мы любим делать это, но имейте в виду, что у нас нет инфраструктуры, цепи поставок или производства, чтобы на самом деле их изготавливать или поставлять. Но эти майки всегда будут в вашем воображении. :-)</p>
       </div>
-      <div class="films" id="films"></div>
-    </div>
+      <div class="main__item">
+        <h2>Создай майку, но помоги нам сделать это.</h2>
+        <p>Хоть мы и не продаём майки, но мы даём вам возможность создать свою собственную! На самом деле. Мы действительно нуждаемся в вашей помощи, чтобы сделать это. Если ты можешь создать интерфейс, в котором можно создать свой дизайн майки, это будет отлично!</p>
+      </div>
+    </section>
   </main>
-  <script src="./index.js"></script>  
 </body>
 </html>
