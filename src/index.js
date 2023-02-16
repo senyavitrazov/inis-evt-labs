@@ -15,5 +15,15 @@ for (key in personalMovieDB.movies) {
   table.innerHTML += `<tr><td>${key}</td><td>${personalMovieDB.movies[key]}</td></tr>`
 }
 
+const foo = () => {
+  personalMovieDB.privat = !personalMovieDB.privat;
+  document.querySelector('main').innerHTML = '';
+  if (!personalMovieDB.privat) document.querySelector('main').append(table);
+  else document.querySelector('main ').innerHTML = 'PRIVATE : FALSE';
+}
 
-document.querySelector('body').append(table);
+const btn = document.createElement('button');
+btn.innerHTML = 'change privacy';
+btn.onclick = foo;
+
+document.querySelector('body').prepend(btn);
