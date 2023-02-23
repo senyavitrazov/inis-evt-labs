@@ -1,0 +1,57 @@
+html {
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  header {
+    background: rgb(52, 206, 142);
+    height: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+  }
+
+  article {
+    padding: 10px;
+    margin: 10px;
+    background: rgba(16, 233, 215, 0.178);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-row {
+    display: flex;
+  }
+
+  .second-row {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-basis: 33.3333%;
+    justify-content: flex-end;
+  }
+
+  .subwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 66.66666%;
+  }
+
+  .subwrapper * {
+    flex-basis: 46.7666%;
+  }
