@@ -1,0 +1,35 @@
+.header {
+
+  &__top {
+    height: 30px;
+    background: $color-gold;
+  }
+
+  &__center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  &__logo {
+    img {
+      height: 50px;
+    }
+  }
+
+  &__bottom {
+    height: 32px;
+    background: $color-gold;
+  }
+}
+
+.main {
+  padding: 40px 0;
+  flex: 1 1 auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
