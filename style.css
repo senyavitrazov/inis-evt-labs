@@ -24,34 +24,40 @@ html {
     background: rgba(16, 233, 215, 0.178);
   }
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-  }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 25%);
+}
 
-  .first-row {
-    display: flex;
-  }
+article:nth-child(1) {
+  grid-area: 1 / 1 / 4 / 2;
+}
 
-  .second-row {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-
-  .column {
-    display: flex;
-    flex-direction: column-reverse;
-    flex-basis: 33.3333%;
-    justify-content: flex-end;
-  }
-
-  .subwrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 66.66666%;
-  }
-
-  .subwrapper * {
-    flex-basis: 46.7666%;
-  }
+article:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3; 
+}
+article:nth-child(3) {
+  grid-area: 1 / 3 / 3 / 5; 
+}
+article:nth-child(4) {
+  grid-area: 2 / 2 / 3 / 3; 
+}
+article:nth-child(5) {
+  grid-area: 3 / 2 / 4 / 3;
+}
+article:nth-child(6) {
+  grid-area: 3 / 3 / 4 / 4;
+}
+article:nth-child(7) {
+  grid-area: 3 / 4 / 4 / 5; 
+}
+article:nth-child(8) {
+  grid-area: 4 / 1 / 5 / 2;
+}
+article:nth-child(9) {
+  grid-area: 4 / 2 / 5 / 4;
+}
+article:nth-child(10) {
+  grid-area: 4 / 4 / 5 / 5;
+}
