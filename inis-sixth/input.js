@@ -6,8 +6,7 @@ const previousPosition = {
   target: null,
 }
 
-let touchtime = 0;
-let flag = 0;
+let touchtime = null;
 
 blocks.forEach((el) => {
   el.addEventListener('dblclick', (ev) => {
@@ -18,49 +17,53 @@ blocks.forEach((el) => {
       el.classList.remove('active');
     }
   })
-
   el.addEventListener('mousedown', (ev) => {
     previousPosition.target = el;
     foo(ev, el);
   })
-
   el.addEventListener('touchstart', (ev) => {
     foo(ev.touches[0], el);
     previousPosition.target = el;
+  });
+})
 
-    if (touchtime == 0) {
-      touchtime = new Date().getTime();
-    } else {
-      if (((new Date().getTime()) - touchtime) < 800) {
-        el.classList.toggle('active');
-        flag = !flag;
-        touchtime = 0;
+document.addEventListener('touchstart', ev => {
+  if (touchtime == 0) {
+    touchtime = new Date().getTime();
+  } else {
+    if (((new Date().getTime()) - touchtime) < 200) {
+      if (ev.target.classList[0] === 'target') {
+        previousPosition.target = ev.target;
+        ev.target.classList.add('active');
       } else {
-          touchtime = new Date().getTime();
+        previousPosition.target.classList.remove('active');
       }
+      touchtime = 0;
+    } else {
+      touchtime = new Date().getTime();
     }
+  }
+})
 
-    if (flag) {
-      document.addEventListener('touchmove', ev => {
-        console.log(ev);
-        el.style.left = ev.touches[0].pageX - el.offsetWidth / 2 + 'px';
-        el.style.top = ev.touches[0].pageY - el.offsetHeight / 2 + 'px';
-      })
-    }
-  })
+function returnToPrev() {
+  [previousPosition.target.style.top, previousPosition.target.style.left] = [previousPosition.top, previousPosition.left];
+  previousPosition.target.classList.remove('active');
+  document.onmousemove = null;
+  previousPosition.target.onmouseup = null;
+}
 
-  el.addEventListener('touchmove', (ev) => {
-      ev.preventDefault();
-      foo(ev.touches[0], el);``
-  }) 
+document.addEventListener('touchmove', ev => {
+  if (ev.touches.length < 2) {
+    previousPosition.target.style.left = ev.touches[0].pageX - previousPosition.target.offsetWidth / 2 + 'px';
+    previousPosition.target.style.top = ev.touches[0].pageY - previousPosition.target .offsetHeight / 2 + 'px';
+  } else {
+    returnToPrev();
+  }
 })
 
 document.addEventListener('keydown', (ev) => {
   if (ev.isComposing || ev.key === 'Escape') {
-    [previousPosition.target.style.top, previousPosition.target.style.left] = [previousPosition.top, previousPosition.left];
-    previousPosition.target.classList.remove('active');
-    document.onmousemove = null;
-    previousPosition.target.onmouseup = null;
+    returnToPrev();
   }
 });
 
@@ -69,16 +72,12 @@ function foo(e, el) {
   moveAt(e);
   el.style.zIndex = 2;
   [previousPosition.top, previousPosition.left] = [el.style.top, el.style.left];
-  
+
   function moveAt(e) {
     el.style.left = e.pageX - el.offsetWidth / 2 + 'px';
     el.style.top = e.pageY - el.offsetHeight / 2 + 'px';
   }
-
-  document.ontouchmove = function(e) {
-    if (flag) moveAt(e);
-  }
-
+  
   document.onmousemove = function(e) {
     moveAt(e);
   }
