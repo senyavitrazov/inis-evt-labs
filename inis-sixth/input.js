@@ -49,6 +49,7 @@ function returnToPrev() {
   [previousPosition.target.style.top, previousPosition.target.style.left] = [previousPosition.top, previousPosition.left];
   previousPosition.target.classList.remove('active');
   document.onmousemove = null;
+  document.ontouchmove = null;
   previousPosition.target.onmouseup = null;
 }
 
